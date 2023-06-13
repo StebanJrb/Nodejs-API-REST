@@ -4,7 +4,7 @@ import {getConnection} from "../database/database";
 const getLabs = async (request,response)=>{
     try{
         const connection = await getConnection();
-        const result = await connection.query("SELECT id, name, sala, inicio, fin FROM eventos");
+        const result = await connection.query("SELECT event_id, room_id, user_id, start_time, end_time, event_title, event_description FROM eventos_reserva");
         response.json(result);
     }catch(error){
         response.status(500);
